@@ -1,6 +1,15 @@
+const expect = require('expect/lib/index.js');
+
 require ( './root.js' );
-
-
+function introduction(name){
+  console.log(`Hi, my name is ${name}.`);
+};
+function introductionWithLanguage(name, language="JavaScript"){
+  console.log(`Hi, my name is ${name} and I'm learning to program in ${language}.`);
+};
+function sayHelloTo(firstName) {
+  console.log(`Hello, ${firstName}!`);
+};
 describe('introduction(name)', function() {
   it('takes in an argument of a name and returns a phrase with that name using string interpolation', function() {
     expect(introduction("Aki")).toEqual("Hi, my name is Aki.");
@@ -24,5 +33,10 @@ describe('introductionWithLanguageOptional(name, language)', function() {
 describe('introductionWithLanguageOptional(name, language)', function() {
   it('takes in two arguments, a name and a language, and the default value can be overridden with an argument', function() {
     expect(introductionWithLanguageOptional("Gracie", "Python")).toEqual("Hi, my name is Gracie and I am learning to program in Python.");
+  })
+})
+describe('sayHelloTo(name)',function(){
+  it('takes one argument is name', function(){
+    expect(sayHelloTo("Aki")).toEqual("Hello,Aki!");
   })
 })
